@@ -1,0 +1,10 @@
+[
+    {
+        "model-name": "Report",
+        "resource-file": "reports.json"
+    },
+    {
+        "model-name": "School",
+        "resource-file": "schools.json"
+    }
+]

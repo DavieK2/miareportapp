@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddSchoolIdToClassRegistersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('class_registers', function (Blueprint $table) {
+
+             $table->unsignedInteger('school_id')->nullable();
+            });
+    
+            Schema::table('class_registers', function (Blueprint $table) {
+                $table->foreign('school_id')->references('id')->on('schools');
+            });
+        }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('class_registers', function (Blueprint $table) {
+        $table->dropForeign(['school_id']);
+        });
+    }
+}
